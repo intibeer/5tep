@@ -1,0 +1,727 @@
+
+ <head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css"> 
+<title>5tep</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script data-cfasync="false">
+  (function(r,e,E,m,b){E[r]=E[r]||{};E[r][b]=E[r][b]||function(){
+  (E[r].q=E[r].q||[]).push(arguments)};b=m.getElementsByTagName(e)[0];m=m.createElement(e);
+  m.async=1;m.src=("file:"==location.protocol?"https:":"")+"//s.reembed.com/G-X3736X.js";
+  b.parentNode.insertBefore(m,b)})("reEmbed","script",window,document,"api");
+</script>
+<script>
+  function go(loc) {
+    document.getElementById('wiki').src = loc;
+  };
+  
+</script>
+</head>
+
+ <template name="navigation">
+
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+							  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							  </button>
+							  <a class="navbar-brand" href="{{pathFor route='videos'}}"><img src="http://5tep.com/version1.png" width="45px" height="45px" style="margin-top: -11px;"></a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							  <ul class="nav navbar-nav navbar-left">
+													{{#if currentUser}}
+													<li><a href="#" class="logout">Logout</a></li>
+													{{else}}
+													<li role="presentation"><a href="{{pathFor route='register'}}">Register</a></li>
+													<li role="presentation"><a href="{{pathFor route='login'}}">Login</a></li>
+													{{/if}}
+													
+							  </ul>						
+							  <form class="navbar-form " role="search">
+								<div class="form-group">
+								  <input  type="text" class="form-control" width="600px" placeholder="Search Videos">
+								</div>
+								<button type="submit" class="btn btn-secondary">Search</button>
+								
+							  </form>		
+								<li style="display: none;"><a href="{{pathFor route='wikipedia'}}">Wiki</a></li>
+							</div><!-- /.navbar-collapse -->
+								
+						</div><!-- /.container-fluid -->
+						<div class="loading-bar"></div>	
+					</nav>	
+					
+					
+</template>
+ 
+ <template name="main">
+ 
+	{{> navigation }}
+	<div id="wrapper" class="toggled">
+	{{ >momentsForm }}
+
+	       <div id="page-content-wrapper">
+	
+	<div width="100%" style="padding-left:50px;" class="row ">
+						
+							<ul class="nav nav-tabs" >
+								{{#each urls }}
+									 {{ >url }} 
+									
+								{{/each }}
+						  
+						</ul>
+
+						</div>
+
+	
+		<div class=" panel-body momentsub">
+			<div class="col-md-5" >	
+						{{>listPage}}
+							
+			</div>	
+				<div  class="col-md-7 tab-pane active">
+			
+
+						
+						<iframe src="about:blank" class="pagebox" frameborder="0" width="100%" height="435" id="wiki" style="background: #e1e2e2; margin-top: 10px;" >
+							<p>Your browser does not support iframes.</p>
+							
+							
+						
+						</iframe>
+				</div>
+				</div>
+
+				<script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+			
+
+<style type="text/css">.content {
+  overflow: visible;
+  position: relative;
+  width: auto;
+  margin-left: 0;
+  min-height: auto;
+  padding: inherit;
+}</style>
+
+<h2 class="editable">Editable header</h2>
+
+<div class="editable">
+  <p>
+    This is an editable div element.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam tincidunt est ac dolor condimentum vitae laoreet ante accumsan. Nullam tincidunt tincidunt ante tempus commodo. Duis rutrum, magna non lacinia tincidunt, risus lacus tempus ipsum, sit amet euismod justo metus ut metus. Donec feugiat urna non leo laoreet in tincidunt lectus gravida. Sed semper ante sed dui consectetur eget commodo eros imperdiet. Mauris magna diam, scelerisque at ornare vel, dignissim ac sem. Fusce id congue lacus. Duis sit amet tellus erat. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus mattis facilisis pretium. In in nibh eu urna ornare semper. Sed imperdiet felis vitae nibh sagittis eu pulvinar metus facilisis. Sed dolor orci, aliquet sagittis auctor id, faucibus at justo.
+  </p>
+  <p>
+    Vestibulum vestibulum velit nec magna lobortis elementum. Ut egestas ultrices tincidunt. Sed vestibulum mi vitae dui interdum eget rhoncus neque faucibus. Ut nec leo tellus. Nunc in metus sit amet purus bibendum dignissim pulvinar quis erat. Quisque vel ultricies nisi. Vestibulum eu ante risus. In ultrices dignissim massa, vel luctus dui consequat quis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+  </p>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dui nulla, venenatis at porttitor nec, sagittis et urna. Nulla facilisi. Integer bibendum porta urna porta suscipit. In condimentum quam quis justo accumsan molestie. Fusce accumsan vulputate mattis. Sed pharetra volutpat erat at convallis. Etiam tempus, est ac tincidunt scelerisque, mi elit pretium nulla, sit amet viverra nisl enim id lorem. Suspendisse ut enim ullamcorper tellus eleifend sagittis. Aenean mollis turpis eu nisl viverra laoreet. Mauris ante purus, tempor ut viverra eu, vestibulum eget tellus. Morbi vitae dolor tellus. Mauris sodales rutrum nunc, a imperdiet augue egestas vel. Nulla facilisi. Nulla venenatis tristique nisi ut blandit. Phasellus suscipit arcu adipiscing velit posuere nec lacinia urna mattis.
+  </p>
+  <p>
+    Nulla ullamcorper magna sit amet leo porta blandit. Aliquam sed nulla ac arcu vehicula feugiat. Fusce eget accumsan dui. Vestibulum vel leo tellus. Sed dignissim justo in nunc interdum tempor vehicula neque egestas. Fusce lacinia turpis sit amet leo consequat laoreet. Cras nec erat ac purus volutpat consequat. Vestibulum iaculis tincidunt purus eget blandit. Cras consectetur tellus libero. Vestibulum eros orci, volutpat vitae lobortis sit amet, porta quis felis. In a lacus ac neque luctus mollis. Nulla elementum nunc ac ante porttitor id venenatis augue venenatis. In aliquam magna non dolor convallis consequat.
+  </p>
+</div>
+				</div>
+				</div>
+				
+				
+				<script type="text/javascript">tinymce.init({
+  selector: 'h2.editable',
+  inline: true,
+  toolbar: 'undo redo',
+  menubar: false
+});
+
+tinymce.init({
+  selector: 'div.editable',
+  inline: true,
+  plugins: [
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen',
+    'insertdatetime media table contextmenu paste'
+  ],
+  toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image'
+});</script>			
+	<script>
+    $(".menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</template>
+
+<template name="addList">
+	<form>
+	<h4 style="padding-left: 20px">Add New Video</h4>	
+		<div class="col-md-5 panel"><input type="text" name="vtitle1" id="vtitle1" class="form-control" placeholder= "Video Title" /></div>
+		<div class="col-md-5 panel"> <input type="text" name="listName" id="videoid1" class="form-control" placeholder= "Youtube Video ID" /></div>
+			<div class="col-md-1">
+				<input class="btn btn-secondary btn-md " type="submit" />
+			</div>
+	</form>
+		
+</template> 
+
+<template name="listPage">
+ 
+		
+			<div class="panel-body"> 	
+				
+			<iframe width="100%" height="400"  src="https://www.youtube.com/embed/{{name}}{{url1}}?autoplay=1?enablejsapi=1&amp;autohide=1&amp;color=white&amp;controls=1&amp;playsinline=1&amp;rel=0&amp;showinfo=0&amp;theme=light&amp;wmode=transparent" frameborder="0" allowfullscreen></iframe>		
+		<br>
+				<button class="btn btn-success menu-toggle" href="#menu-toggle" data-toggle="tooltip" data-placement="top" title="Tag a moment in the video with a webpage">
+						Tag a Page
+				</button>
+				<button type="button" class="btn btn-warning">Tag a note</button>
+				<button  class="btn btn-danger">
+						Remove Tag
+				</button>
+		</div>
+		
+		
+</template> 
+ 
+
+
+
+<template name="momentsForm">
+							
+	
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li>	
+					
+                      <h2>Add Page</h2>
+                    
+                </li>
+                <hr>
+                		 
+                    <div style="padding: 10px;">
+                		
+							<h4><bold><label for="momenttime" >Time</label></bold></h4>
+						
+							<input type="text"  class="form-control momentdata2 sidebar-form-input" name="time1" id="momenttime" placeholder="hrs:mins:secs">
+							
+							
+							<h4>
+							<label for="momentTitle" >Title</label>
+							</h4>
+							<input type="text" class="form-control momentdata3 sidebar-form-input" id="momentTitle" name="title1" placeholder="Wiki Title">
+							
+							
+							
+							
+							
+							<h4>
+							<label for="url1">Page URL</label>
+							</h4>
+							<input type="text" name="url1" class="form-control momentdata3 sidebar-form-input"  id="url1" placeholder="Wikipedia URL">
+							
+							<br>
+							<br>
+							
+							
+							<button type="submit" value="Submit" style="width: 100px;" class="btn btn-primary">Tag Page</button>
+					</div>
+							
+							
+	</ul>					
+		</div>
+			
+							
+							
+							</template>
+ 
+
+ <template name="url">
+								<li class="main-tab">
+								
+								<a  style="display: inline;" class="" data-toggle="tab" href="" onload="titlerepl()" onclick="go('{{url1}}')">
+								<img  width="30px" src="http://5tep.com/version1.png">
+							
+								</a>
+								</li>
+								 
+								
+</template>
+
+<template name="lists">
+    <br>
+	<div class="panel panel-default">
+					<div class="panel-heading"><a href="/videos" class="pull-right"></a><h4>Recently Added Videos</h4></div>
+						<div class="panel-body">
+						
+							<div class="row" style="height: 285px; overflow:auto;">
+						  
+						  
+							{{#each list }}
+								     
+									<div class="col-lg-2 col-xs-4  ">
+										<a class="item1" href="/video/{{_id}}">
+										<img class="img-responsive" width="400px" height="300px" src="http://img.youtube.com/vi/{{name}}/1.jpg" alt=""><div class="overlay1"><p class="thumb-title"><br>Watch</p></div>
+										</a>
+										</div>
+								{{/each }}
+															
+						  </div>
+
+						</div>
+						
+					</div>
+					
+					 
+</template>
+
+
+
+
+<template name="register">
+{{>navigation}}
+ <div class="container" style="text-align: left;  padding:10%;">
+		<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+	<div class="">
+		<h2 style="padding-left: 10%; text-align: left;">Register</h2>
+		<hr>
+			<form class="register" style="padding:0 10% 0 10%;">				
+				<p>Name: <input class="form-control" type="name" name="name"></p>
+				<p>Email: <input class="form-control" type="email" name="email"></p>
+				<p>Password: <input class="form-control" type="password" name="password"></p>
+				<p><input type="submit" class="btn" value="Register"  href=" {{pathFor route='videos'}} " ></p>
+				<br>
+			</form>
+	</div>
+	</div>
+	</div>
+</template>
+						
+<template name="login">
+{{>navigation}}
+	<div class="container" style="text-align: left;  padding:10%;">
+		<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+	
+	<div class="page-header">
+		<h2 style="text-align:left; padding-left: 10%">Login</h2>
+	</div>
+	<form class="login" style="padding:0 10% 0 10%;">
+		<p>Email: <input type="email" class="form-control" name="email"></p>
+			<p>Password: <input type="password" class="form-control" name="password"></p>
+			<p><input type="submit" class="btn" value="Login" href="{{pathFor route='videos'}}"></p>
+			<br>
+	</form>
+	</div>
+	</div>
+</template>
+
+<template name="time">
+	<small>
+	
+		{{time1}}
+	
+	</small>	
+</template>
+ 
+<template name="title">
+	<small>
+		{{title1}}
+			</small>
+</template>
+
+<template name="vtitles">
+
+{{#each vtitle }}
+<ol class="list-group-item">
+{{vtitle1 }}
+
+</ol>
+{{/each }}
+
+</template>
+
+		
+	<template name="videos">
+	{{>navigation}}
+		<div class="container">
+		<div class="row">
+		<h3>Welcome to 5TEP - A video study tool.</h3>
+		</div>
+			<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+			
+				<div class="col-lg-12">
+				<br>
+			<div class="container">{{> addList}}</div>
+				{{>lists}}
+				
+			
+				{{> kurzgesagt }}
+				{{> minutephysics }}
+				
+				{{> crashcourse }}
+				{{> vsauce }}
+				
+					
+	</div>
+		</div>
+		
+		
+	
+		
+			</div>
+				
+</template>
+
+
+<template name="demo">
+{{>navigation}}
+
+</template>
+
+
+<template name="kurzgesagt">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: Kurzgesagt - In a Nutshell</h4></div>
+						<div class="panel-body row">
+						 
+
+       
+
+
+            <div class="col-lg-2 col-xs-4">
+                <a class="item1" href="/video/bLLd4bs86iWeBDYNm">
+                    <img width="400px" height="300px" src="http://img.youtube.com/vi/RvOnXh3NN9w/1.jpg" alt="">
+				<div class="overlay1"><p class="thumb-title"><br>The European Refugee Crisis and Syria Explained</p></div>	
+                </a>
+				
+            </div>
+			
+
+            <div class="col-lg-2 col-xs-4">
+                <a class="item1" href="/video/bznLZ4Ra9PEJK5PBf">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/ao8L-0nSYzg/1.jpg" width="400px" height="300px"  alt="">
+					<div class="overlay1"><p class="thumb-title"><br>
+            Addiction</p></div>	
+                </a>
+            </div>
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/G8jtCFZJt8keZt3hg">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/zQGOcOUBi6s/1.jpg" alt="">
+					<center style="display: none;"><small>The Immune System – Bacteria Infection</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/Ms7vAGMhjmC3qTBtv">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/wJUXLqNHCaI/1.jpg" alt="">
+					<center style="display: none;"><small>The War on Drugs</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/8WpPAXyLM2aFtQEi7">
+                    <img class="img-responsive" src="https://img.youtube.com/vi/PKMQzkIiB0Y/1.jpg" alt="">
+					<center style="display: none;"><small>Are We Alone? (In the universe)</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+       
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+<template name="minutephysics">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: MinutePhysics</h4></div>
+						<div class="panel-body row">
+						 
+
+   
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+     
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+
+<template name="crashcourse">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: CrashCourse</h4></div>
+						<div class="panel-body row">
+						 
+
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+        
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+<template name="vsauce">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: Vsauce</h4></div>
+						<div class="panel-body row">
+						 
+
+       
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+        
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+
+

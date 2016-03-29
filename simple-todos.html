@@ -1,0 +1,1138 @@
+
+ <head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<link rel="stylesheet" href="main.css"> 
+<title>5tep: Inti's Project</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+										
+
+
+<script>
+  function go(loc) {
+    document.getElementById('wiki').src = loc;
+  };
+  
+</script>
+
+
+  
+
+								
+								
+  
+  
+ 
+  
+
+ </head>
+ 
+      
+ 
+
+
+ <template name="navigation">
+
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<!-- Brand and toggle get grouped for better mobile display -->
+							<div class="navbar-header">
+							  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							  </button>
+							  <a class="navbar-brand" href="{{pathFor route='videos'}}"><img src="http://5tep.com/version1.png" width="45px" height="45px" style="margin-top: -11px;"></a>
+							</div>
+							<!-- Collect the nav links, forms, and other content for toggling -->
+							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							  <ul class="nav navbar-nav navbar-left">
+													{{#if currentUser}}
+													<li><a href="#" class="logout">Logout</a></li>
+													{{else}}
+													<li role="presentation"><a href="{{pathFor route='register'}}">Register</a></li>
+													<li role="presentation"><a href="{{pathFor route='login'}}">Login</a></li>
+													{{/if}}
+													
+							  </ul>						
+							  <form class="navbar-form " role="search">
+								<div class="form-group">
+								  <input  type="text" class="form-control" width="600px" placeholder="Search Videos">
+								</div>
+								<button type="submit" class="btn btn-secondary">Search</button>
+								
+							  </form>		
+								<li><a href="{{pathFor route='wikipedia'}}">Wiki</a></li>
+							</div><!-- /.navbar-collapse -->
+								
+						</div><!-- /.container-fluid -->
+							
+					</nav>	
+					
+					
+</template>
+ 
+ <template name="main">
+ 
+	{{> navigation }}
+	
+	<div width="100%" style="padding-left:50px;" class="row ">
+						
+							<ul class="nav nav-tabs" >
+								{{#each urls }}
+									 {{ >url }} 
+									
+								{{/each }}
+						  
+						</ul>	
+						</div>
+
+	
+		<div class=" panel-body momentsub">
+			<div class="col-md-5" >	
+						{{>listPage}}
+							
+			</div>	
+				<div  class="col-md-7 tab-pane active">
+				
+						<iframe src="about:blank" class="pagebox" frameborder="0" width="100%" height="470" id="wiki">
+							<p>Your browser does not support iframes.</p>
+							
+						
+						</iframe>
+				</div>
+				</div>
+				
+		
+						<div class="" width="100%">
+						
+						<form class="form-inline panel ">
+									
+									
+									{{ >momentsForm }}
+									
+						</form>	
+						</div>
+
+					
+	
+
+</template>
+
+<template name="addList">
+	<form>
+	<h4 style="padding-left: 20px">Add New Video</h4>	
+		<div class="col-md-5 panel"><input type="text" name="vtitle1" id="vtitle1" class="form-control" placeholder= "Video Title" /></div>
+		<div class="col-md-5 panel"> <input type="text" name="listName" id="videoid1" class="form-control" placeholder= "Youtube Video ID" /></div>
+			<div class="col-md-1">
+				<input class="btn btn-secondary btn-md " type="submit" />
+			</div>
+	</form>
+		
+</template> 
+
+<template name="listPage">
+ 
+		
+			<div class="panel-body"> 	
+				
+			<iframe width="100%" height="400"  src="https://www.youtube.com/embed/{{name}}{{url1}}?autoplay=1?enablejsapi=1&amp;autohide=1&amp;color=white&amp;controls=1&amp;playsinline=1&amp;rel=0&amp;showinfo=0&amp;theme=light&amp;wmode=transparent" frameborder="0" allowfullscreen></iframe>		
+		
+		</div>
+		
+		
+</template> 
+ 
+
+
+
+<template name="momentsForm">
+							<div class="row">
+							<div class= "container momentsform" >
+							<div class="form-group col-md-3 momentsform" >
+							<label for="momenttime" >Wiki Time</label>
+							<input type="text"  class="form-control momentdata2" name="time1" id="momenttime" placeholder="hrs:mins:secs">
+							</div>
+							
+							<div class="form-group col-md-3 momentsform">
+							
+							<label for="momentTitle" >Wiki Title</label>
+							<input type="text" class="form-control momentdata3" id="momentTitle" name="title1" placeholder="Wiki Title">
+							</div>
+							
+							
+							
+							
+							<div class="form-group col-md-3 momentsform">
+							<label for="url1">Wikipedia Page</label>
+							<input type="text" name="url1" class="form-control momentdata3"  id="url1" placeholder="Wikipedia URL">
+							</div>
+							<div class="form-group col-md-3" style="padding-top: 25px;">
+							
+							
+							<button type="submit" value="Submit"  class="btn btn-md" style="border:solid; border-width: 2px; border-color: white;">Connect Wiki</button>
+							
+							
+						
+							</div>
+							</div>
+							</div>
+							</template>
+ 
+
+ <template name="url">
+								<li class="main-tab">
+								
+								<a  style="display: inline;" class="" data-toggle="tab" href="" onload="titlerepl()" onclick="go('{{url1}}')">
+								<img  width="30px" src="http://5tep.com/version1.png">
+							
+								</a>
+								</li>
+								 
+								
+</template>
+
+<template name="lists">
+    <br>
+	<div class="panel panel-default">
+					<div class="panel-heading"><a href="/videos" class="pull-right"></a><h4>Recently Added Videos</h4></div>
+						<div class="panel-body">
+						
+							<div class="row" style="height: 285px; overflow:auto;">
+						  
+						  
+							{{#each list }}
+								     
+									<div class="col-lg-2 col-xs-4 thumb">
+										<a class="thumbnail" href="/video/{{_id}}">
+										<img class="img-responsive" width="400px" height="300px" src="http://img.youtube.com/vi/{{name}}/1.jpg" alt="">
+										</a>
+										</div>
+								{{/each }}
+															
+						  </div>
+
+						</div>
+						
+					</div>
+					
+					 
+</template>
+
+
+
+
+<template name="register">
+{{>navigation}}
+ <div class="container" style="text-align:center;  padding:10%;">
+		<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+	<div class="">
+		<h2>Register</h2>
+		<hr>
+			<form class="register" style="padding:10%;">
+				<p>Email: <input class="form-control" type="email" name="email"></p>
+				<p>Password: <input class="form-control" type="password" name="password"></p>
+				<p><input type="submit" class="btn" value="Register"  href=" {{pathFor route='videos'}} " ></p>
+			</form>
+	</div>
+	</div>
+	</div>
+</template>
+						
+<template name="login">
+{{>navigation}}
+	<div class="container" style="text-align:center;  padding:10%;">
+		<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+	
+	<div class="page-header">
+		<h2>Login</h2>
+	</div>
+	<form class="login" style=" padding:10%;">
+		<p>Email: <input type="email" class="form-control" name="email"></p>
+			<p>Password: <input type="password" class="form-control" name="password"></p>
+			<p><input type="submit" class="btn" value="Login" href="{{pathFor route='videos'}}"></p>
+	</form>
+	</div>
+	</div>
+</template>
+
+<template name="time">
+	<small>
+	
+		{{time1}}
+	
+	</small>	
+</template>
+ 
+<template name="title">
+	<small>
+		{{title1}}
+			</small>
+</template>
+
+<template name="vtitles">
+
+{{#each vtitle }}
+<ol class="list-group-item">
+{{vtitle1 }}
+
+</ol>
+{{/each }}
+
+</template>
+
+		
+	<template name="videos">
+	{{>navigation}}
+		<div class="container">
+		<div class="row">
+		<h3>Welcome to 5TEP - Discover YouTube and Wikipedia simultaneously. </h3>
+		</div>
+			<div class="row row-offcanvas row-offcanvas-right panel panel-default">
+			
+				<div class="col-lg-12">
+				<br>
+			<div class="container">{{> addList}}</div>
+				{{>lists}}
+				
+			
+				{{> kurzgesagt }}
+				{{> minutephysics }}
+				
+				{{> crashcourse }}
+				{{> vsauce }}
+				
+					
+	</div>
+		</div>
+		
+		
+	
+		
+			</div>
+				
+</template>
+
+
+<template name="demo">
+{{>navigation}}
+
+</template>
+
+
+<template name="wikipedia">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+WikiCategories = {
+	0:"reference",
+	1:"culture",
+	2:"geography",
+	3:"health",
+	4:"history",
+	5:"mathematics",
+	6:"nature",
+	7:"people",
+	8:"philosophy",
+	9:"religion",
+	10:"society",
+	11:"technology"
+};
+
+$(document).ready(function(){
+	var SearchEntered = undefined,
+			jsonQuery = true;
+
+  //------Open a new window with a random article of wikipedia
+  $("#random").on({
+  	'click': function (){
+  		function randomWiki(){
+		  window.open("https://en.wikipedia.org/wiki/Special:RandomInCategory/"
+		  			+ category);	
+   		  $("#random").html("Somethin About");
+		}
+  		var category = WikiCategories[Math.floor(Math.random()*12)];
+  		$("#random").html(category);
+  		window.setTimeout(randomWiki,1000); 		
+  		}
+  	});
+
+  //--------highlight the autocomplet when press down/up arrows
+  $(document).keyup(function (event){ 
+    var highlight = $('div.highlight');
+    		
+
+    if (searchBox.value!="") {   
+    	if (event.keyCode == 27) {
+    		$("#search-autocomplete").css("display","none");
+    	}else if (event.keyCode == 40 && jsonQuery) {
+	  	  if (highlight.attr('class') == undefined) {
+	  	  	//-----highlight the first result when there is no highlight
+	  	  	SearchEntered = searchBox.value;
+	  	    $('div.autocomplete').eq(0).addClass('highlight');
+	  	    searchBox.value = $('div.autocomplete').eq(0).html(); 
+	  	  } else{
+	  	  		//-------highlight the div underneath highlight 
+	  	      highlight.removeClass('highlight').next().addClass('highlight');
+	  	      searchBox.value = highlight.next().html(); 
+		      if (highlight.next().length == 0) {
+		      	//-------unhighlight when is the last result highlighted
+		        highlight.removeClass('highlight');
+		        searchBox.value = SearchEntered;
+		      }
+	  		}	 
+	  	     
+	  } else if (event.keyCode === 38 && jsonQuery) {
+	    	if (highlight.attr("class") == undefined) {
+	    		//-----highlight the last result when there is no highlight 
+	    		//-----and put the original search in the searchbox
+	    		SearchEntered = searchBox.value;
+	  		  $("div.autocomplete").eq(-1).addClass("highlight");
+	  		  searchBox.value = $("div.autocomplete").eq(-1).html(); 
+	  		} else{
+	  			//-------highlight the div above highlight 
+	  		  highlight.removeClass("highlight").prev().addClass("highlight");
+	  		  searchBox.value = highlight.prev().html(); 
+		      if (highlight.prev().length == 0) {
+		      	//-------unhighlight when is the first result highlighted
+		      	//-----and put the original search in the searchbox
+		        highlight.removeClass("highlight");
+		        searchBox.value = SearchEntered;
+		      } 
+	  		}	              
+	    } else if (event.keyCode > 49 || event.keyCode===8 && event.keyCode!==13) {
+	    	//-----unhighlight the divs when refresh the search when an autocomplete
+	    	//------and put the new search in the searchbox
+	    	highlight.removeClass("highlight");
+	    	SearchEntered = searchBox.value;
+
+	    	//-----mediaWiki API url
+	    	var getTittles = "http://en.wikipedia.org/w/api.php?format=json"
+										+"&action=query&generator=search&gsrlimit=4&gsrsearch="
+										+ SearchEntered+"&callback=?"; 
+
+				$.getJSON(getTittles, function(json) { 					
+			      var count = 1;
+			      console.log(json.query);
+
+			      if (!json.query){
+			      	$("#search-autocomplete").css("display","none");
+			      	jsonQuery = false;
+			      		
+						} else{
+							jsonQuery=true;
+				      //----put content in auto-complete box
+				      Object.keys(json.query.pages).forEach(function(key){
+				      	$("#auto-"+count).html(json.query.pages[key].title);	
+				      	count++;		      	
+				      })
+				    }			    
+			  });	
+			  if(searchBox.value!="" && jsonQuery){ 
+			    	$("#search-autocomplete").css("display","block");
+			  }
+	    }
+	  }		 
+  });
+
+   //-----change searchbox css  
+  $("#searchBox").on({
+  	'keyup': function (event){
+
+  		if(this.value!=""){  			
+  			$("#search-button").css("background-color", "#537691");
+  			$("#clean-search").css("display", "block");
+  			$("#clean-search").click(function(){
+  				searchBox.value = "";
+  				$("#search-button").css("background-color", "transparent");
+  				$("#clean-search").css("display", "none");
+  				$("#searchBox").focus();
+  				$("#search-autocomplete").css("display","none");
+  				$("div.highlight").removeClass("highlight");
+  			});
+  		} else{
+  			$("#search-button").css("background-color", "transparent");
+  			$("#clean-search").css("display", "none");  
+  			$("#search-autocomplete").css("display","none");
+  			$("div.highlight").removeClass("highlight");			
+  		}
+  		if (event.keyCode===13){
+  			$("#search-autocomplete").css("display","block");
+  		}
+  	}
+  }); 
+
+  //--------highlight the autocomplet when put mouse over
+  $("div.autocomplete").mouseover(  	
+	  function() {
+	  	$(".highlight").removeClass("highlight")
+	    $(this).addClass("highlight");
+	  }
+	);
+  $("div.autocomplete").mouseout(
+	  function() {
+	    $(this).removeClass("highlight");
+	  }
+	); 		
+
+  //----submit the search form when click a suggestion to search
+  $("div.autocomplete").on({  	
+  	'click': function (){
+  	  searchBox.value=$(this).html();
+  	  $("#search-form").submit();
+  	}
+  });
+
+  //Change the layout of the page when submit a search and shows the results
+  $("#search-form" ).submit(function(event) { 
+  	//-----mediaWiki API url results
+	  var getResults = "http://en.wikipedia.org/w/api.php?format=json&action=query"
+	  								+"&generator=search&gsrlimit=10&prop=extracts&exintro"
+	  								+"&explaintext&exchars=100&exlimit=max&gsrsearch="
+										+ searchBox.value+"&callback=?"; 
+		$.getJSON(getResults, function(json) { 
+      var counter=1;
+
+      //----put content in auto-complete box
+      Object.keys(json.query.pages).forEach(function(key){
+      	$("#result-"+counter).html("<a href='https://en.wikipedia.org/wiki/"
+      		+ json.query.pages[key].title
+      		+"' target='_blank'><h1 class='result-tittle'>"
+      		+json.query.pages[key].title
+      		+"</h1><p class='result-text'>"
+      		+json.query.pages[key].extract
+      		+"</p></a>");
+        counter++;     
+      })	 
+		});
+
+  	event.preventDefault();
+	  $("#results").css("display","block");
+	  $("#results").css("margin-top",$("#search-container").css("height"));
+	  $("#search-autocomplete").css("display","none");
+	  $("#tittle").css("display","none");
+	  $("#random").css("display","none");
+	  $("#searchBox").blur();
+	  $("#logo").css("display","none");
+	  $(".wrapper").css("top","3%");
+	}); 
+});
+</script>
+
+<style>
+
+#search-container {
+  position: absolute;  
+  margin: auto;
+  left: 0;
+  right: 0;
+  max-width: 650px;
+  width: 80%;
+  max-height: 8em;
+  height: 100%;
+}
+
+#search-wrapper{
+  background: #FFF;
+  height: 2.8em;
+}
+
+#search-form {  
+  border: 1px solid #D0D0D0;
+  border-radius: 2px;
+  padding-left: 0.5em;
+  padding-right: 6em;
+  height: inherit;
+}
+
+#searchBox {
+  width: 100%;
+  font-size: 130%;
+  outline: none;
+  height: 100%;
+  padding: 0;
+  border: none;
+  z-index: 1;
+  color: #555;
+}
+
+#search-button {
+  font-size: 180%;
+  border-radius: 2px;
+  background: transparent;  
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  height: inherit;
+  opacity: 0.5;
+  position: absolute;  
+  top: 0.5px;
+  bottom: 0;
+  right: 0;
+}
+
+#search-button:hover{
+  background-color: #537691;
+  color: #DDD;
+  opacity: 0.8;
+}
+
+#clean-search {
+  font-size: 150%;
+  border-radius: 2px;
+  background: transparent;  
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  height: inherit;
+  margin-right: 50px;
+  opacity: 0.5;
+  padding: 0;
+  position: absolute;  
+  top: 1px;
+  bottom: 0;
+  right: 0;
+  display: none;
+}
+
+#clean-search:hover{
+  opacity: 0.8;
+}
+
+
+
+
+#title {
+    font-size: 3em;
+    padding: 20px;
+    color: #3A3A3A;
+  }
+
+#results{
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 114%;
+  border-top: 1px solid #D0D0D0;
+  padding: 2%;
+  overflow: auto;
+}
+
+.result{
+  height: 25%;
+  margin: 2px;
+  padding: 10px;
+  border-bottom: 1px solid #D0D0D0;
+  overflow: hidden;
+}
+
+.result:hover{
+  background-color: #ECFDFC;
+  border-radius: 5px;
+}
+
+.result-text {
+  height: 50%;  
+  padding-left: 1%;
+  font-size: 1.3em;
+}
+
+.result-tittle{
+  text-align: left;
+  margin-top: 0;
+  font-size: 1.8em;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.result a, .result a:hover{
+  margin: 0px;
+  text-decoration: none;
+  color: #555;
+  cursor: pointer;
+}
+
+#search-autocomplete{
+  border: 1px solid #D0D0D0;
+  width: 100%;
+  max-height: 150px;
+  z-index: 20;
+  background-color: #FFF;
+  position: absolute;
+  left: 0;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  display: none;
+}
+
+#autocomplete-wrapper {
+  padding: 5px 0;
+  max-height: 150px; 
+  overflow: hidden;
+  overflow: auto;
+  position: static;
+}
+
+.material-icons{
+
+}
+
+.autocomplete {
+  padding: 5px;
+  cursor: pointer;
+  margin: -5px 0;
+  overflow: hidden;
+  position: static;
+}
+
+.highlight {
+  color: #505050;
+  background-color: #ECFDFC; 
+}
+
+@media only screen and (max-height: 650px){
+  #logo {
+    max-width: 75px;   
+  }
+
+  .wrapper{    
+    top: 10%;   
+  }
+
+  #tittle {
+    font-size: 2em;
+  }
+
+  #random {
+    font-size: 115%;
+    margin-top: 15px;
+  }
+
+  .result{
+    height: 45%;
+  }
+
+  .result-text {   
+    font-size: 0.9em;
+  }
+
+  .result-tittle{
+    font-size: 1.2em;
+  }
+
+  #results{
+    height: 100%;
+  }
+}
+
+@media only screen and (max-height: 330px){
+  #logo {
+    max-width: 60px;   
+  }
+
+  .wrapper{    
+    top: 8%;   
+  }
+
+  #tittle {
+    font-size: 1.5em;
+  }
+
+  #random {
+    font-size: 115%;
+    margin-top: 13px;
+  }
+
+  .result{
+    height: 55%;
+  }
+
+  #results{
+    height: 89%;
+  }
+}
+</style>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Cinzel+Decorative' rel='stylesheet' type='text/css'>
+<link rel="script" href='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'>
+
+
+<div class="wrapper">
+    <div id="head-page">
+      
+      <center><h1 id="tittle">Wikipedia Search</h1></center>
+    </div>
+    <div id="search-container">
+      <div id="search-wrapper">
+        <form id="search-form">
+          <input type="text" id="searchBox" tabindex="1" autofocus="autofocus" autocomplete="off">
+          <input id="search-button" class="material-icons" typeindex="2" type="submit" value="search">
+          <input id="clean-search" class="material-icons" type="button" value="highlight_off">
+          <div id="search-autocomplete">
+            <div id="autocomplete-wrapper">
+              <div id="auto-1" class="autocomplete"></div>
+              <div id="auto-2" class="autocomplete"></div>
+              <div id="auto-3" class="autocomplete"></div>
+              <div id="auto-4" class="autocomplete"></div>
+            </div>
+          </div>
+        </form>
+     
+      <div id="results">
+        <div id="result-1" class="result"></div>
+        <div id="result-2" class="result"></div>
+        <div id="result-3" class="result"></div>
+        <div id="result-4" class="result"></div>
+        <div id="result-5" class="result"></div>
+        <div id="result-6" class="result"></div>
+        <div id="result-7" class="result"></div>
+        <div id="result-8" class="result"></div>
+        <div id="result-9" class="result"></div>
+        <div id="result-10" class="result"></div>
+      </div>
+    </div>    
+</div>	
+</div>
+
+
+</template>
+
+<template name="kurzgesagt">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: Kurzgesagt - In a Nutshell</h4></div>
+						<div class="panel-body row">
+						 
+
+       
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/bLLd4bs86iWeBDYNm">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/RvOnXh3NN9w/1.jpg" alt="">
+				<center><small>The European Refugee Crisis and Syria Explained</small></center>	
+                </a>
+				
+            </div>
+			
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/bznLZ4Ra9PEJK5PBf">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/ao8L-0nSYzg/1.jpg" alt="">
+					<center><small>Addiction</small></center>	
+                </a>
+            </div>
+            
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/G8jtCFZJt8keZt3hg">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/zQGOcOUBi6s/1.jpg" alt="">
+					<center><small>The Immune System – Bacteria Infection</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/Ms7vAGMhjmC3qTBtv">
+                    <img class="img-responsive" src="http://img.youtube.com/vi/wJUXLqNHCaI/1.jpg" alt="">
+					<center><small>The War on Drugs</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="/video/8WpPAXyLM2aFtQEi7">
+                    <img class="img-responsive" src="https://img.youtube.com/vi/PKMQzkIiB0Y/1.jpg" alt="">
+					<center><small>Are We Alone? (In the universe)</small></center>
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+       
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+<template name="minutephysics">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: MinutePhysics</h4></div>
+						<div class="panel-body row">
+						 
+
+   
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+     
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+
+<template name="crashcourse">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: CrashCourse</h4></div>
+						<div class="panel-body row">
+						 
+
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+        
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+<template name="vsauce">
+
+
+
+
+<div class="panel panel-default">
+					<div class="panel-heading"><h4>Collections: Vsauce</h4></div>
+						<div class="panel-body row">
+						 
+
+       
+
+
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+            </div>
+            <div class="col-lg-2 col-xs-4 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                </a>
+           
+        
+						
+						</div>
+					</div>
+				</div>	
+</template>
+
+
+

@@ -1,0 +1,251 @@
+iframe, object, embed {
+        max-width: 100% !important;
+		
+
+}
+.video-container { padding-top: 20px;
+}
+
+.align-center { padding: 10px; 
+text-align: center;
+}
+
+.align-center-top { padding-top: 10px; }
+
+.img-thumbnail {
+width: 100px; }
+
+.video-wrapper {
+			text-align:center;
+}
+
+.panel-heading {background-color: #e1e2e2 !important; }
+
+
+.title {
+font-family: 'Open Sans', sans-serif;
+margin: auto;
+}
+
+.stick-btm { position: fixed;
+bottom: 0px;
+}
+
+.momentsform { background: #e7e4e4;}
+.pagebox {color: #e7e4e4; background: : #e7e4e4; }
+.momentsub { color: white; background: white;}
+body { background: #e1e2e2 !important }
+
+.main-tab{
+    border-bottom: none;
+    color: #DDDADA;
+    border-width: 0px;
+    background: white;
+	margin-right: 5px;
+	margin-left: 5px;
+	padding:5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.img-responsive {
+width: 400px; height: 260px;
+ /* demo css */
+}
+ 
+.item1 {
+            
+            display: block;
+           
+            position: relative;
+        }
+
+            .item1 img {
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+
+            .item1 .overlay1 {
+                position: absolute;
+                left: 0%;
+              top:0;
+                width: 0%;
+                height: 100%;
+                background-color: rgba(19, 19, 19, 0.5);
+                -webkit-transition: all 1s ease;
+                -moz-transition: all 1s ease-in;
+                -o-transition: all 1s ease-in-out;
+                transition: all 1s ease;
+                visibility:hidden;
+                overflow:hidden;
+                
+            }
+
+
+            .item1:hover .overlay1 {
+                top:0;
+              left:0;
+                visibility:visible;
+                width:100%;
+                height:100%;
+            }
+
+.thumb-title {
+  
+  text-align: center;
+  margin: auto;
+  color: white;
+  font-weight: 20px;
+  font-size: 16px;
+  color: #fff;
+            
+                
+                
+}
+ 
+
+/*!
+ * Start Bootstrap - Simple Sidebar HTML Template (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+    padding-left: 250px;
+}
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
+    font-size: 18px;
+    line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
+}
+
+
+
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+}
+
+.sidebar-form-input {
+    margin: 0 10px 0 0px; width: 180px;
+}
+
+#sidebar-wrapper {
+    border-radius: 5px;
+    background: #FFFFFF;
+    position: absolute;
+}
+
+.loading-bar {
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: #a1a6b7;
+  
+}
+
+.add-tag {
+    background:  green;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    vertical-align: middle;
+}
